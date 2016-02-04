@@ -1,6 +1,7 @@
 package jiconfont.icons;
 
 import jiconfont.IconCode;
+import jiconfont.IconFont;
 
 import java.io.InputStream;
 
@@ -347,9 +348,18 @@ public enum Elusive implements IconCode {
         return "Elusive-Icons";
     }
 
-    @Override
-    public InputStream getFontInputStream() {
-        return Elusive.class.getResourceAsStream("/fonts/Elusive-Icons.ttf");
+    public static IconFont getIconFont() {
+        return new IconFont() {
+            @Override
+            public String getFontFamily() {
+                return "Elusive-Icons";
+            }
+
+            @Override
+            public InputStream getFontInputStream() {
+                return Elusive.class.getResourceAsStream("/fonts/Elusive-Icons.ttf");
+            }
+        };
     }
 
 }
